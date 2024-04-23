@@ -1,0 +1,21 @@
+{% extends 'mi_app/base.html' %}
+
+{% block contenido %}
+
+<h1>Esto es un ejemplo</h1>
+<h2>Bienvenido a esta pagina</h2>
+
+{% for p in superheroe %}
+
+<h1>
+{{p.nombre}}
+</h1>
+ 
+{% if p.imagen %}
+<img src="{{p.imagen.url}}">
+{% endif %}
+
+{% endfor %}
+
+
+{% endblock %}
