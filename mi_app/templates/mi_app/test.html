@@ -6,6 +6,8 @@
 <form action="" class="Formulario_Test" method="post">
 
     {% csrf_token %}
+    <h2>Ingresa tu nombre</h2>
+    {{form.nombre}}
 
     <h2>Que tan miedoso eres</h2>
     {{ form.pregunta1 }}

@@ -10,14 +10,6 @@ class Superheroe(models.Model):
         return self.nombre
 
 
-class Usuario(models.Model):
-    alias = models.CharField(max_length=50)
-    edad = models.IntegerField()
-    nombre = models.ForeignKey(Superheroe, on_delete=models.PROTECT)
-
-    def __str__ (self): 
-        return self.alias
-
 opciones_respuestas = [
     [0,1],
     [1,2],
@@ -27,10 +19,11 @@ opciones_respuestas = [
 ]
 
 class Test(models.Model):
+    nombre = models.CharField(max_length=50)
     pregunta1 = models.IntegerField(choices=opciones_respuestas)
     pregunta2 = models.IntegerField(choices=opciones_respuestas)
     pregunta3 = models.IntegerField(choices=opciones_respuestas)
-
-    def __str__(self):
-        return self.pregunta1
+    def calcular_resultado(self):
+        return self.pregunta1 + self.pregunta2 + self.pregunta3
+    
 
