@@ -12,17 +12,26 @@ def home(request):
     }
     return render(request, 'mi_app/home.html', data)
 
+
 def test(request):
     data = {
         'form': TestForm()
     }
+
+
+
 
     if request.method == 'POST':
         formulario = TestForm(data=request.POST)
         if formulario.is_valid():
             formulario.save()
             data["mensaje"] = "datos guardados"
+            return render(request,'mi_app/resultados.html')
+
         else:
             data["form"] = formulario
 
     return render(request, 'mi_app/test.html',data)
+
+def resultados(request):
+    return render(request, 'mi_app/resultados.html')
