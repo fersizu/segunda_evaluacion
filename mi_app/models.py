@@ -18,6 +18,19 @@ class Usuario(models.Model):
     def __str__ (self): 
         return self.alias
 
+opciones_respuestas = [
+    [0,1],
+    [1,2],
+    [2,3]
 
 
+]
+
+class Test(models.Model):
+    pregunta1 = models.IntegerField(choices=opciones_respuestas)
+    pregunta2 = models.IntegerField(choices=opciones_respuestas)
+    pregunta3 = models.IntegerField(choices=opciones_respuestas)
+
+    def __str__(self):
+        return self.pregunta1
 

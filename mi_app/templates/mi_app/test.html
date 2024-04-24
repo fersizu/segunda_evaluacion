@@ -3,5 +3,25 @@
 {% block contenido %}
 
 <h1>Aqui va el test</h1>
+<form action="" class="Formulario_Test" method="post">
+
+    {% csrf_token %}
+
+    <h2>Que tan miedoso eres</h2>
+    {{ form.pregunta1 }}
+    
+    <h2>Que feliz</h2>
+    {{ form.pregunta2 }}
+    
+    <h2>Que triste</h2>
+    {{ form.pregunta3 }}
+
+    <button type="submit" id="btnEnviar" class="button">guardar</button>
+
+
+</form>
+
+<a href="">Ver resultados</a>
+{{mensaje}}
 
 {% endblock %}
