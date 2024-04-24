@@ -1,21 +1,78 @@
 {% extends 'mi_app/base.html' %}
-
+{% load static %}   
 {% block contenido %}
+<style>
+  .carousel-item img {
+    width: 100%; /* Ajustar al ancho del contenedor */
+    height: 480px; /* Altura específica */
+    object-fit: cover;
+    object-position: top;
+}
+</style>
+<div id="carouselExampleFade" class="carousel slide carousel-fade">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'images/dc_img02.jpg' %}" class="d-block w-100" alt="dc">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/dc_img03.jpg'%}" class="d-block w-100" alt="dc">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/dc_img01.jpg'%}" class="d-block w-100" alt="dc">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
 
-<h1>Esto es un ejemplo</h1>
-<h2>Bienvenido a esta pagina</h2>
-
-{% for p in superheroe %}
-
-<h1>
-{{p.nombre}}
-</h1>
- 
-{% if p.imagen %}
-<img src="{{p.imagen.url}}">
-{% endif %}
-
-{% endfor %}
-
+<section class="container-fluid mt-5 mb-5">
+<div class="row row-cols-1 row-cols-md-4 g-4">
+  <div class="col">
+    <div class="card h-100" style="width: 15rem;">
+      <img src="{% static 'images/dc_img04.jpg' %}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Batman Who Laughs</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-primary">Leer</a>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100" style="width: 15rem;">
+      <img src="{% static 'images/dc_img05.jpg' %}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Batman: la corte de los búhos</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-primary">Leer</a>
+      </div>
+    </div>
+</div>
+<div class="col">
+  <div class="card h-100" style="width: 15rem;">
+    <img src="{% static 'images/dc_img06.jpg' %}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Dceased</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">Leer</a>
+    </div>
+  </div>
+</div>
+<div class="col">
+<div class="card h-100" style="width: 15rem;">
+  <img src="{% static 'images/dc_img07.jpg' %}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Dark Knights: Metal</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Leer</a>
+  </div>
+</div>
+</div>
+</section>
 
 {% endblock %}
