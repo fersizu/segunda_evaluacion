@@ -1,29 +1,80 @@
 {% extends 'mi_app/base.html' %}
-
+{% load static %}
 {% block contenido %}
 
-<h1>Aqui va el test</h1>
+<div class="container">
+    <div class="row">
+        <div class="col fs-1 text-center">
+            Bienvenido al test para descubrir qué superheroe eres.
+        </div>
+    </div>
+    <div class="row">
+        <div class="col fs-3  mb-4">
+            Para descubrir tus superpoderes y hablididades deberas responder las siguientes preguntas, donde <p class="fw-semibold"> 3 significa
+                que te sientes muy identificado y 1 nada identificado.</p>
+        </div>
+    </div>
+</div>
+
 <form action="" class="Formulario_Test" method="post">
 
     {% csrf_token %}
-    <h2>Ingresa tu nombre</h2>
-    {{form.nombre}}
 
-    <h2>Que tan miedoso eres</h2>
-    {{ form.pregunta1 }}
-    
-    <h2>Que feliz</h2>
-    {{ form.pregunta2 }}
-    
-    <h2>Que triste</h2>
-    {{ form.pregunta3 }}
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col ">
+                ingresa tu nombre
+            </div>
+            <div class="col">
+                {{form.nombre}}
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col col-8">
+                Eres un estudiante normal, pero un día despiertas y descubres que tienes super poderes, Te gustaría que
+                el
+                mundo supiera tu secreto?
+            </div>
 
-    <button type="submit" id="btnEnviar" class="button">guardar</button>
+            <div class="col">
+                {{ form.pregunta1 }}
+            </div>
+
+        </div>
+        <div class="row mb-4">
+            <div class="col col-8">
+                En una ciudad acosada por un supervillano que controla mentes, un grupo de héroes se enfrenta a su
+                némesis en una batalla épica. Con ingenio y trabajo en equipo, logran liberar a la población y salvar el
+                día, pero durante la batalla destrozas una casa, ¿te sentirías culpable?
+            </div>
+            <div class="col">
+                {{ form.pregunta2 }}
+            </div>
+
+        </div>
+        <div class="row mb-4">
+            <div class="col col-8">
+
+                Un científico brillante, tras años de experimentación, desarrolla un suero que otorga habilidades
+                sobrehumanas. Sin embargo, al probarlo en sí mismo, se ve consumido por un conflicto interno entre el
+                deseo de ayudar a la humanidad y el temor a las consecuencias de sus acciones. ¿Te sientes identificado
+                con este dilema moral?
+            </div>
+
+            <div class="col">
+                {{ form.pregunta3 }}
+            </div>
+
+        </div>
+    <button type="submit" id="btnEnviar" class="button btn btn-primary">Ver Resultado</button>
+    <div class="row"></div>
+    </div>
+
+
 
 
 </form>
 
-<a href="{% url 'resultados' %}">Ver resultados</a>
 
 {{mensaje}}
 
