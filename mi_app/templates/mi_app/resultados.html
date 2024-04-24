@@ -5,20 +5,42 @@
 
      <h1>Resultados</h1>
     {% if formulario_data %}
-    <p>Los datos del formulario son:</p>
+    <p>Felicidades {{  formulario_data.nombre }} tu superheroe es: </p>
     <ul>
-        {% for key, value in formulario_data.items %}
-        <li><strong>{{ key }}:</strong> {{ value }}</li>
-        {% endfor %}
+    <p>{{ heroe.nombre }}</p>
+    <p>{{ heroe.poder }}</p>
+    <p>{{ heroe.debilidad }}</p>
+    <img src="{{ heroe.imagen }}">
+
+
     </ul>
+    {% for heroe in superheroe %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col">{{ heroe.nombre }}</div>
+        </div>
+        <div class="row">
+            <div class="col">Tu poder es</div>
+            <div class="col">{{ heroe.poder }}</div>
+        </div>
+        <div class="row">
+            <div class="col">Tu debilidad es</div>
+            <div class="col">{{ heroe.debilidad }}</div>
+        </div>
+        <div class="row">
+            <div class="col"><img src="{{ heroe.imagen }}"></div>
+        </div>
+        
+    </div>
+    {% endfor %}
+
+
     {% else %}
     <p>No se han recibido datos del formulario.</p>
     {% endif %}
     
-    <!-- Aquí puedes mostrar los superhéroes u otros datos si lo deseas -->
-    {% for heroe in superheroe %}
-    <p>{{ heroe.nombre }}</p>
-    {% endfor %}
+
 
 
 {% endblock %}

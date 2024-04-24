@@ -33,10 +33,14 @@ def home(request):
 #
 #    return render(request, 'mi_app/test.html',data)
 def test(request):
-    data = {
-        'form': TestForm()
-    }
     superheroe = Superheroe.objects.all()
+    data = {
+        'form': TestForm(),
+       'superheroe': superheroe  # Pasar todos los superhéroes a resultados
+
+
+    }
+   
 
     if request.method == 'POST':
         formulario = TestForm(data=request.POST)
