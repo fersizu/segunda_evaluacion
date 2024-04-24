@@ -2,6 +2,23 @@
 
 {% block contenido %}
 
-<h1>Tu reslutado es:</h1>
+
+     <h1>Resultados</h1>
+    {% if formulario_data %}
+    <p>Los datos del formulario son:</p>
+    <ul>
+        {% for key, value in formulario_data.items %}
+        <li><strong>{{ key }}:</strong> {{ value }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No se han recibido datos del formulario.</p>
+    {% endif %}
+    
+    <!-- Aquí puedes mostrar los superhéroes u otros datos si lo deseas -->
+    {% for heroe in superheroe %}
+    <p>{{ heroe.nombre }}</p>
+    {% endfor %}
+
 
 {% endblock %}
